@@ -4,7 +4,12 @@
 const CheckOutSuccessPage = () => {
   return (
     <div>
-      stop buying!! 
+      <h1>Success!</h1>
+      <p>Thanks you for choosing us!</p>
+      <p>
+      We’re working hard to get it shipped to you. We hope to see you again in the future. 
+      </p>
+      
     </div>
   );
 };

@@ -1,5 +1,5 @@
 
-import Products from "../../src/components/Products";
+import Products from '../../src/components/Products';
 
 
 const HomePage = () => {
@@ -8,7 +8,6 @@ const HomePage = () => {
       <h1>Home Page</h1>
       <Products/> 
     </div>
-  );
-};
+)};
 
 export default HomePage;

@@ -1,43 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-interface Image {
-  url: string;
-  alt: string;
-}
-
-interface Review {
-  id: number;
-  username: string;
-  rating: number;
-  description: string;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  image: Image;
-  description: string;
-  price: number;
-  discountedPrice: number;
-  rating: number;
-  reviews: Review[];
-}
-
-const Products: React.FC = () => {
-  const [data, setData] = useState<Product[]>([]);
+const Products = () => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://v2.api.noroff.dev/online-shop');
+        const response = await fetch('https://v2.api.noroff.dev/online-shop'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
         setData(result.data);
-      } catch (error: any) {
+      } catch (error) {
         setError(error.message);
       } finally {
         setLoading(false);
@@ -52,7 +29,7 @@ const Products: React.FC = () => {
 
   return (
     <div>
-      {data.map((item) => (
+      {data.map(item => (
         <div key={item.id}>
           <h2>{item.title}</h2>
           <img src={item.image.url} alt={item.image.alt} />
@@ -62,7 +39,7 @@ const Products: React.FC = () => {
           <p>Rating: {item.rating}</p>
           <div>
             <h3>Reviews</h3>
-            {item.reviews.map((review) => (
+            {item.reviews.map(review => (
               <div key={review.id}>
                 <p>{review.username}: {review.rating} stars</p>
                 <p>{review.description}</p>

@@ -1,8 +1,12 @@
+import React from "react";
 
-export default function index() {
+const ProductPage = () => {
   return (
     <div>
-      productpage
+      <h1>Home Page</h1>
+      <p>Welcome to the Home Page</p>
     </div>
-  )
-}
+  );
+};
+
+export default ProductPage;
